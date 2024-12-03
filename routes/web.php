@@ -24,5 +24,8 @@ Route::post('/handleUpload', [Controller::class, 'handleUpload']);
 // Route::get('/routing', [PostController::class, 'routing']);
 Route::get('/post/{id}', [PostController::class, 'show']);
 
+Route::get('/about', [PostController::class, 'about']);
+
+
 
 

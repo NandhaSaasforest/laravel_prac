@@ -1,15 +1,15 @@
 <?php
 
 namespace App\Http\Controllers;
-use App\Models\Post;
+use App\Models\Product;
 use Illuminate\Http\Request;
 
-class PostController extends Controller
+class ProductController extends Controller
 {
     public function show($id)
     {
         // Find the post by its ID
-        $post = Post::find($id);
+        $post = Product::find($id);
 
         // If the post doesn't exist, return a 404 error page
         if (!$post) {
@@ -19,9 +19,4 @@ class PostController extends Controller
         // Return the view with the post data
         return view('routing', ['post' => $post]);
     }
-
-    public function about(Request $request){
-        return view('about');
-    }
-
 }
