@@ -3,6 +3,7 @@
 use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\PostController;
+use App\Http\Controllers\ProductController;
 
 Route::get('/', function () {
     return view('welcome');
@@ -24,7 +25,14 @@ Route::post('/handleUpload', [Controller::class, 'handleUpload']);
 // Route::get('/routing', [PostController::class, 'routing']);
 Route::get('/post/{id}', [PostController::class, 'show']);
 
+Route::get('/product/{id}', [ProductController::class, 'find']);
+
 Route::get('/about', [PostController::class, 'about']);
+
+Route::get('/product', [ProductController::class, 'list']);
+
+
+
 
 
 
