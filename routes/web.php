@@ -3,6 +3,7 @@
 use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\PostController;
+use App\Http\Controllers\PrManagementController;
 use App\Http\Controllers\ProductController;
 
 Route::get('/', function () {
@@ -28,7 +29,9 @@ Route::get('/product/{id}', [ProductController::class, 'find']);
 
 Route::get('/about', [PostController::class, 'about']);
 
-Route::get('/product', [ProductController::class, 'list']);
+Route::resource('products', PrManagementController::class);
+
+Route::get('/products/{id}', [PrManagementController::class, 'show'])->name('products.show');
 
 
 

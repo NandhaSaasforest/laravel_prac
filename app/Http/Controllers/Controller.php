@@ -97,7 +97,6 @@ class Controller
         if ($request->hasFile('image')) {
             $path = $request->file('image');
             $image = Storage::put("uploads", $path);
-            // ->store('C:\laravel\Example1\storage\app\public', 'public');
             $success = "File uploaded successfully!";
             return view('welcome', ['success' => $success, 'imagePath' => $image]);
         }
