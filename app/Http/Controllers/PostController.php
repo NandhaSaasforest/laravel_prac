@@ -1,27 +1,22 @@
 <?php
 
 namespace App\Http\Controllers;
+
 use App\Models\Post;
-use Illuminate\Http\Request;
 
 class PostController extends Controller
 {
     public function show($id)
     {
         // Find the post by its ID
-        $post = Post::find($id);
-
-        // If the post doesn't exist, return a 404 error page
-        if (!$post) {
-            abort(404, 'Post not found');
-        }
+        $post = Post::findOrFail($id);
 
         // Return the view with the post data
         return view('routing', ['post' => $post]);
     }
 
-    public function about(Request $request){
+    public function about()
+    {
         return view('about');
     }
-
 }

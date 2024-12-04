@@ -17,8 +17,6 @@ return new class extends Migration
             $table->decimal('price')->nullable();
             $table->double('quantity')->nullable();
             $table->string('type')->nullable();
-
-
             $table->timestamps();
         });
     }

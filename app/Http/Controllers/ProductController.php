@@ -1,27 +1,23 @@
 <?php
 
 namespace App\Http\Controllers;
+
 use App\Models\Product;
-use Illuminate\Http\Request;
 
 class ProductController extends Controller
 {
     public function find($id)
     {
         // Find the post by its ID
-        $product = Product::find($id);
-
-        // If the post doesn't exist, return a 404 error page
-        if (!$product) {
-            abort(404, 'Product not found');
-        }
+        $product = Product::findOrFail($id);
 
         // Return the view with the post data
         return view('product', ['product' => $product]);
     }
 
-    public function list(Request $request){
+    public function list()
+    {
         $products = Product::all();
-        return view('product', ['products'=> $products]);
+        return view('product', ['products' => $products]);
     }
 }
