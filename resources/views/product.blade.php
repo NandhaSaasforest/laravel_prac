@@ -6,21 +6,19 @@
     <title>Routing</title>
 </head>
 <body>
-    @isset($products)
-        @foreach ($products as $product )
-            <div class="post">
-                <h1>{{ $product->name }}</h1>
-                <div class="content">
-                    Price: {{$product->price}}
-                    Quantity: {{$product->quantity}}{{$product->type}}
-                    
-                </div>
+    @foreach ($products as $product )
+        <div class="post">
+            <h1>{{ $product->name }}</h1>
+            <div class="content">
+                Price: {{$product->price}}
+                Quantity: {{$product->quantity}}{{$product->type}}
+                
             </div>
-        @endforeach
-    @endisset
+        </div>
+    @endforeach
 
     
-    @isset($product)
+    @if($product)
         <div class="post">
             <h1>{{ $product->name }}</h1>
             <div class="content">
@@ -28,7 +26,7 @@
                 Quantity: {{$product->quantity}}{{$product->type}}         
             </div>
         </div>
-    @endisset
+    @endif
  
     
 </body>
