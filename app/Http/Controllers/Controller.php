@@ -6,7 +6,6 @@ use Illuminate\Http\Request;
 
 use Illuminate\Support\Facades\Storage;
 
-// use Illuminate\Support\Facades\Request;
 
 class Controller
 {
@@ -62,19 +61,18 @@ class Controller
         $validUsername = "admin";
         $validPassword = "12345";
 
-        if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['u_name']) && isset($_POST['pass'])) {
-            $name = $_POST['u_name'];
-            $password = $_POST['pass'];
+        $name = $request->input('u_name');
+        $password = $request->input('pass');
 
-            if ($name === $validUsername && $password === $validPassword) {
-                // Store session data
-                $_SESSION['loggedin'] = true;
-                $_SESSION['name'] = $name;
-                return view('login', ['name' => $name, 'pass' => $password]);
-            } else {
-                $error = "Invalid username or password";
-                return view("welcome", ["error" => $error ?? null]);
-            }
+
+        if ($name === $validUsername && $password === $validPassword) {
+            // Store session data
+            $_SESSION['loggedin'] = true;
+            $_SESSION['name'] = $name;
+            return view('login', ['name' => $name, 'pass' => $password]);
+        } else {
+            $error = "Invalid username or password";
+            return view("welcome", ["error" => $error ?? null]);
         }
     }
 

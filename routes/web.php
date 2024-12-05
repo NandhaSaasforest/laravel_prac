@@ -31,4 +31,4 @@ Route::get('/about', [PostController::class, 'about']);
 
 Route::resource('products', PrManagementController::class);
 
-Route::get('/products/{id}', [PrManagementController::class, 'show'])->name('products.show');
+Route::post('/prlogin', [PrManagementController::class, 'login']);

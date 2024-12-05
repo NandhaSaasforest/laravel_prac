@@ -10,10 +10,26 @@ class PrManagementController
     /**
      * Display a listing of the resource.
      */
+
     public function index()
     {
-        $products = PrManagement::all();
-        return view("products.index", compact("products"));
+        return view("products.index");
+    }
+
+    public function login(Request $request)
+    {
+        $validUsername = "admin";
+        $validPassword = "12345";
+
+        $username = $request->input("name");
+        $password = $request->input('pass');
+
+        if ($username == $validUsername && $password == $validPassword) {
+            $products = PrManagement::all();
+            return view("products.index", compact("products"));
+        } else {
+            return redirect()->route('products.index')->with('failed', 'Username or Password is wrong!');
+        }
     }
 
     /**
