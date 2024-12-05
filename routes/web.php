@@ -25,8 +25,6 @@ Route::post('/handleUpload', [Controller::class, 'handleUpload']);
 
 Route::get('/post/{id}', [PostController::class, 'show']);
 
-Route::get('/product/{id}', [ProductController::class, 'find']);
-
 Route::get('/about', [PostController::class, 'about']);
 
 Route::resource('products', PrManagementController::class);

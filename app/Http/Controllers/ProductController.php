@@ -12,12 +12,13 @@ class ProductController extends Controller
         $product = Product::findOrFail($id);
 
         // Return the view with the post data
-        return view('product', ['product' => $product]);
+        return response()->json($product, 200);
     }
 
     public function list()
     {
         $products = Product::all();
-        return view('product', ['products' => $products]);
+        // return view('product', ['products' => $products]);
+        return response()->json($products, 200);
     }
 }
