@@ -5,9 +5,8 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class Post extends Model
+class PrManagement extends Model
 {
     use HasFactory;
-    protected $fillable = ['title', 'content'];
-    public $timestamps = true;
+    protected $fillable = ['name', 'price', 'quantity'];
 }
