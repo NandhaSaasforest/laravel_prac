@@ -2,10 +2,10 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\PrManagement;
+use App\Models\ProductManagement;
 use Illuminate\Http\Request;
 
-class PrManagementController
+class ProductManagementController
 {
     /**
      * Display a listing of the resource.
@@ -25,7 +25,7 @@ class PrManagementController
         $password = $request->input('pass');
 
         if ($username == $validUsername && $password == $validPassword) {
-            $products = PrManagement::all();
+            $products = ProductManagement::all();
             return view("products.index", compact("products"));
         } else {
             return redirect()->route('products.index')->with('failed', 'Username or Password is wrong!');
@@ -51,7 +51,7 @@ class PrManagementController
             'quantity' => 'required|integer',
         ]);
 
-        PrManagement::create(request()->all());
+        ProductManagement::create(request()->all());
 
         return redirect()->route('products.index')->with('success', 'Product has been created!');
     }
@@ -61,7 +61,7 @@ class PrManagementController
      */
     public function show($id)
     {
-        $product = PrManagement::findOrFail($id);
+        $product = ProductManagement::findOrFail($id);
         return view('products.show', compact('product'));
     }
 
@@ -71,7 +71,7 @@ class PrManagementController
     public function edit($id)
     {
 
-        $product = PrManagement::findOrFail($id);
+        $product = ProductManagement::findOrFail($id);
         return view('products.edit', compact('product'));
     }
 
@@ -86,7 +86,7 @@ class PrManagementController
             'quantity' => 'required|integer',
         ]);
 
-        $product = PrManagement::findOrFail($id);
+        $product = ProductManagement::findOrFail($id);
 
         $product->update(request()->all());
         return redirect()->route('products.index')->with('success', 'Product has been updated!');
@@ -97,7 +97,7 @@ class PrManagementController
      */
     public function destroy($id)
     {
-        $product = PrManagement::findOrFail($id);
+        $product = ProductManagement::findOrFail($id);
         $product->delete();
         return redirect()->route('products.index')->with('success', 'Product has been deleted successfully!');
     }
