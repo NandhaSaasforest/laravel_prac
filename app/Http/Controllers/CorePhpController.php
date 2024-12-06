@@ -8,6 +8,11 @@ use Illuminate\Support\Facades\Storage;
 
 class CorePhpController extends Controller
 {
+    public function index(Request $request)
+    {
+
+        return view('welcome');
+    }
     public function calculate(Request $request)
     {
         $result = '';

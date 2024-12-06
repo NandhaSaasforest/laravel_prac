@@ -10,7 +10,7 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-Route::get('/', [Controller::class, 'index'])->name('index');
+Route::get('/', [CorePhpController::class, 'index'])->name('index');
 
 Route::get('/info', [CorePhpController::class, 'info'])->name('info');
 
