@@ -1,6 +1,6 @@
 <?php
 
-use App\Http\Controllers\Controller;
+use App\Http\Controllers\AddToCartController;
 use App\Http\Controllers\CorePhpController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\PostController;
@@ -30,3 +30,5 @@ Route::get('/about', [PostController::class, 'about'])->name('about');
 Route::resource('products', ProductManagementController::class);
 
 Route::post('/prlogin', [ProductManagementController::class, 'login'])->name('prlogin');
+
+Route::get('/addtocart', [AddToCartController::class, 'index'])->name('index');
