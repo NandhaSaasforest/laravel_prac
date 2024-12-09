@@ -48,6 +48,7 @@ class ProductManagementController
         request()->validate([
             'name' => 'required',
             'price' => 'required|numeric',
+            'size'=> 'required',
             'quantity' => 'required|integer',
         ]);
 
@@ -83,7 +84,9 @@ class ProductManagementController
         request()->validate([
             'name' => 'required',
             'price' => 'required|numeric',
+            'size' => 'required|String',
             'quantity' => 'required|integer',
+
         ]);
 
         $product = ProductManagement::findOrFail($id);

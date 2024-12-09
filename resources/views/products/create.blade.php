@@ -6,6 +6,7 @@
         @csrf
         <label>Name: <input type="text" name="name" required></label><br>
         <label>Price: <input type="number" name="price" step="0.01" required></label><br>
+        <label>Size: <input type="text" name="size" step="0.01" required></label><br>
         <label>Quantity: <input type="number" name="quantity" required></label><br>
         <button type="submit">Create</button>
     </form>

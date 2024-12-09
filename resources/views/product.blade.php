@@ -6,6 +6,7 @@
     <title>Routing</title>
 </head>
 <body>
+
     @foreach ($products as $product )
         <div class="post">
             <h1>{{ $product->name }}</h1>
