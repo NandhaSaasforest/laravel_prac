@@ -4,9 +4,16 @@
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-        <title>{{ $title ?? 'Page Title' }}</title>
+        <title>{{ $title ?? 'Counter' }}</title>
+        @vite('resources/css/app.css')
+        
+
     </head>
     <body>
-        {{ $slot }}
+        <div class="container">
+            <livewire:counter />
+            <livewire:product-tags-form />
+        </div>
+        
     </body>
 </html>

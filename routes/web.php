@@ -6,6 +6,7 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\PostController;
 use App\Http\Controllers\ProductManagementController;
 use App\Livewire\Counter;
+use App\Livewire\ProductTagsForm;
 
 Route::get('/', function () {
     return view('welcome');
@@ -33,6 +34,9 @@ Route::resource('products', ProductManagementController::class);
 Route::post('/prlogin', [ProductManagementController::class, 'login'])->name('prlogin');
 
 Route::get('/addtocart', [AddToCartController::class, 'index'])->name('index');
+
 Route::get('/addtocart/products', [AddToCartController::class, 'products'])->name('products');
 
 Route::get('/counter', Counter::class)->name('counter');
+
+Route::get('/tags', ProductTagsForm::class)->name('tags');
