@@ -8,8 +8,8 @@ class category extends Model
 {
     protected $fillable = ['name', 'context'];
 
-    public function posts(){
+    public function posts()
+    {
         return $this->hasMany(Post::class);
     }
-    
 }

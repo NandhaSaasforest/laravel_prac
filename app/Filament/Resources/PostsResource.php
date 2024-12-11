@@ -30,8 +30,8 @@ class PostsResource extends Resource
                 TextInput::make('title'),
                 TextInput::make('content'),
                 Select::make('category_id')
-                ->label('category')
-                ->relationship('category', 'name')
+                    ->label('category')
+                    ->relationship('category', 'name')
             ]);
     }
 
